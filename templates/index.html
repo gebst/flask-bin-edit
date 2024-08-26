@@ -1,0 +1,22 @@
+{% include "nav.html"%}
+
+<div class="container pt-5 text-center mx-auto">
+<h1 class="text-2xl">Uppladdade .bin filer</h1>
+<br>
+    {% if bins %}
+    <table class="table mx-auto">
+    <thead>
+    <tr>
+    <th>Filnamn</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for bin in bins %}
+    <tr><td><a href="/show_tunes/{{ bin }}">{{ bin }}</a></td><tr>
+    {% endfor %}
+    </tbody>
+    </table>
+    {% endif %}
+</div>
+</body>
+</html>

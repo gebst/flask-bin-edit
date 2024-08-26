@@ -1,0 +1,21 @@
+{% include "nav.html"%}
+<title>Ladda upp .bin fil</title>
+<div class="container pt-5 text-center mx-auto">
+<h1 class="text-2xl">Ladda upp .bin fil</h1>
+<br>
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <ul class=flashes>
+    {% for message in messages %}
+      <li>{{ message }}</li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
+<form method=post enctype=multipart/form-data>
+  <input type=file name=file>
+  <input style="border:1px solid black" type=submit value=Upload>
+</form>
+</div>
+</body>
+</html>

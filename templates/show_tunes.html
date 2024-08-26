@@ -1,0 +1,34 @@
+{% include "nav.html"%}
+<title>Välj .winolsskript att applicera</title>
+<div class="container pt-5 text-center mx-auto">
+<h1 class="text-2xl">Välj .winolsskript att applicera på</h1>
+<h1 class="text-2xl">{{ bin_name }}</h1>
+<br>
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <ul class=flashes>
+    {% for message in messages %}
+      <li>{{ message }}</li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
+
+{% if matches %}
+<table class="table mx-auto">
+  <thead>
+  <tr>
+  <th>Procent</th>
+  <th>Filnamn</th>
+  </tr>
+  </thead>
+  <tbody>
+{% for script in matches %}
+<tr><td>{{ script.match }}</td><td><a href="/apply_tune/{{ bin_name }}/{{ script.file }}">{{ script.file }}</a></td></tr>
+{% endfor %}
+<tbody>
+</table>
+{% endif %}
+</div>
+</body>
+</html>
