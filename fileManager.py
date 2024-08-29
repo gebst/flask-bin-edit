@@ -6,13 +6,16 @@ class BinaryFile:
     
     #Get value of offset, return in decimal or hex
     def get(self, offset, type = "dec"):
-        high_byte = self.content[offset]
-        low_byte = self.content[offset+1]
-
-        if(type=="dec"):
-            return((low_byte << 8) | high_byte)
-        if(type=="hex"):
-            return hex((low_byte << 8) | high_byte)
+        try:
+            high_byte = self.content[offset]
+            low_byte = self.content[offset+1]
+    
+            if(type=="dec"):
+                return((low_byte << 8) | high_byte)
+            if(type=="hex"):
+                return hex((low_byte << 8) | high_byte)
+        except:
+            return 0
     
     #Set value of offset in decimal
     def set(self, offset, value):
